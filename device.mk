@@ -19,13 +19,10 @@ LOCAL_PATH := device/motorola/surnia
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# Ramdisk
- PRODUCT_COPY_FILES += \
-     $(call find-copy-subdir-files,*,${LOCAL_PATH}/rootdir,root)
 
 # Prebuilt
 PRODUCT_COPY_FILES += \
-     $(call find-copy-subdir-files,*,${LOCAL_PATH}/prebuilt/system,system)
+    $(call find-copy-subdir-files,*,${LOCAL_PATH}/prebuilt/system,system)
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -160,6 +157,24 @@ PRODUCT_PACKAGES += \
     libcurl \
     tcpdump
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    stml0xx_wrapper.sh \
+    init.qcom.ril.sh \
+    init.surnia.sh
+
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.mmi.boot.sh \
+    init.mmi.dtv.sh \
+    init.mmi.early_boot.sh \
+    init.mmi.touch.sh \
+    init.mmi.usb.rc \
+    init.mmi.usb.sh \
+    init.qcom.rc \
+    ueventd.qcom.rc
+
+
 # Wifi
 PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
@@ -177,8 +192,7 @@ PRODUCT_PACKAGES += \
 
 # Doze
 PRODUCT_PACKAGES += \
-    MotoDoze
-
+    CMActions
 PRODUCT_PACKAGES += \
     WCNSS_qcom_wlan_factory_nv.bin
 

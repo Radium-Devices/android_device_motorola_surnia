@@ -1,2 +1,0 @@
-#============= subsystem_ramdump ==============
-allow subsystem_ramdump device:dir { open read };

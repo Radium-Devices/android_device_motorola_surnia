@@ -47,7 +47,7 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8916
-TARGET_KERNEL_CONFIG := msm8916_defconfig
+TARGET_KERNEL_CONFIG := surnia_defconfig
 
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 
@@ -72,7 +72,6 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_HW_DISK_ENCRYPTION := true
 
 # Display
-BOARD_EGL_CFG := $(LOCAL_PATH)/egl.cfg
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_HAVE_NEW_GRALLOC := true
 TARGET_USES_C2D_COMPOSITION := true
@@ -127,7 +126,7 @@ TARGET_POWERHAL_VARIANT := qcom
 
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
@@ -139,19 +138,16 @@ BOARD_SEPOLICY_DIRS += \
     device/motorola/surnia/sepolicy
 
 BOARD_SEPOLICY_UNION += \
-    atfwd.te \
     atvc.te \
     batt_health.te \
     bluetooth_loader.te \
     bootanim.te \
     device.te \
-    dropboxd.te \
     file.te \
     file_contexts \
     healthd.te \
     init.te \
     init_shell.te \
-    mbm_spy.te \
     mm-qcamerad.te \
     mpdecision.te \
     property.te \
@@ -161,10 +157,8 @@ BOARD_SEPOLICY_UNION += \
     rmt_storage.te \
     shell.te \
     stml0xx.te \
-    subsystem_ramdump.te \
     surfaceflinger.te \
     system_server.te \
-    tcmd.te \
     tee.te \
     ueventd.te \
     vold.te \
