@@ -37,6 +37,9 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
+ROM_OPTIS := true
+KBUILD_BUILD_USER := ramsudharsan
+
 
 #Kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
